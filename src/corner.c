@@ -8,7 +8,7 @@
 #define CORNER_EIG_1     "Eigenvalue Corner Detection Image 1"
 #define CORNER_EIG_2     "Eigenvalue Corner Detection Image 2"
 const int MAX_COUNT = 2000;
-const int wsize=80;
+const int wsize=100;
 float numer[MAX_COUNT][MAX_COUNT];
 float denom_1[MAX_COUNT][MAX_COUNT];
 float denom_2[MAX_COUNT][MAX_COUNT];
@@ -258,8 +258,8 @@ int location;
            location = c;
         }
     } 
-printf("index=%i\n",location);
-printf("index=%i\n",maximum);
+//printf("index=%i\n",location);
+//printf("index=%i\n",maximum);
 
 for (int i=0;i<maximum;i++){
 int in_ind=inlier_index[location][i];
@@ -267,6 +267,10 @@ int xx_in=corners_1[in_ind].x;
 int yy_in=corners_1[in_ind].y;
 int XX_in=corners_2[ind_1[in_ind]].x;
 int YY_in=corners_2[ind_1[in_ind]].y;
+printf("%i\n",xx_in);
+printf("%i\n",yy_in);
+printf("%i\n",XX_in);
+printf("%i\n",YY_in);
 cvCircle(grey_1,cvPoint(xx_in,yy_in), 30, cvScalar(0, 0, 255, 0),30, 8, 0);
 cvCircle(grey_2,cvPoint(XX_in,YY_in), 30, cvScalar(0, 0, 255, 0),30, 8, 0);  
 }
@@ -275,11 +279,11 @@ cvNamedWindow(CORNER_EIG_1, 0); // allow the window to be resized
 cvShowImage(CORNER_EIG_1, grey_1);
 cvNamedWindow(CORNER_EIG_2, 0); // allow the window to be resized
 cvShowImage(CORNER_EIG_2, grey_2);
-cvWaitKey(0);
-cvDestroyWindow(CORNER_EIG_1);
-cvDestroyWindow(CORNER_EIG_2);
-cvReleaseImage( &grey_1);
-cvReleaseImage( &grey_2);
+//cvWaitKey(0);
+//cvDestroyWindow(CORNER_EIG_1);
+//cvDestroyWindow(CORNER_EIG_2);
+//cvReleaseImage( &grey_1);
+//cvReleaseImage( &grey_2);
 
 }
 
